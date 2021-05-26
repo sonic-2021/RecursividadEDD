@@ -18,6 +18,7 @@ public class RecorridoArray {
 
     public static void main(String args[]) {
         int arreglo[] = {1, 10, 3, 4, 5, 6};
+        int array[] = {1};
         mostrarArreglo(arreglo, 0);
         int elementoBuscado = 10;
         int n = buscarNumero(arreglo, elementoBuscado, 0);
@@ -27,7 +28,9 @@ public class RecorridoArray {
         } else {
             System.out.println("El elemento no se encontro en el arreglo");
         }
-    }
+        System.out.println("Suma=" + sumaElementos(arreglo, 0));
+        System.out.println("Multiplicacion=" + multiElementos(arreglo, 0));
+        }
 
     public static void mostrarArreglo(int[] arreglo, int indice) {
 
@@ -53,4 +56,27 @@ public class RecorridoArray {
         }
 
     }
+
+    //Metodo para realizar la suma de los valores del arreglo
+    public static int sumaElementos(int arreglo[], int indice) {
+        if (arreglo.length == 1) { //Cuando el arregl solo tiene un valor
+            return arreglo[indice];
+        } else if (indice == arreglo.length) { //Caso base, cuado el indice sea igual al tamaño del arreglo
+            return 0;
+        } else {
+            return arreglo[indice] + sumaElementos(arreglo, indice + 1);
+        }
+    }
+
+    //Metodo para realizar una mutiplicacion
+    public static int multiElementos(int arreglo[], int indice) {
+        if (arreglo.length == 1) { //Cuando el arregl solo tiene un valor
+            return arreglo[indice];
+        } else if (indice == arreglo.length) { //Caso base, cuado el indice sea igual al tamaño del arreglo
+            return 1;
+        } else {
+            return arreglo[indice] * multiElementos(arreglo, indice + 1);
+        }
+    }
+ 
 }
